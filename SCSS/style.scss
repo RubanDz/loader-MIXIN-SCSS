@@ -13,8 +13,8 @@ $squareWidth: 100px;
     left: 50%;
     @include translate()
 }
-@mixin translate($posX: -50%, $posY: -50%) {
-    transform: translate($posX, $posY);
+@mixin translate($posX: -50%, $posY: -50%, $deg: 0) {
+    transform: translate($posX, $posY) rotate($deg + deg);
 }
     
     
@@ -71,16 +71,16 @@ $squareWidth: 100px;
         .square__triangle {
             border-bottom: 100px solid blueviolet;
             &--top  {
-                @include translate(0, -100%)
+                @include translate(0, -100%, 0);
             }
             &--right  {
-                @include translate(0, -100%)
+                @include translate(100%, 0, 90);
             }
             &--bottom   {
-                @include translate(0, -100%)
+                @include translate(0, 100%, 180);
             }
             &--left  {
-                @include translate(0, -100%)
+                @include translate(-100%, 0, -90);
             }
         }
     }
