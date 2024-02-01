@@ -27,6 +27,7 @@ $squareWidth: 100px;
     width: $squareWidth;
     height: $squareWidth;
     background-color: red;
+    transition: all 1s ease-out; 
     @include relativeCenter();
   
     &__triangle {
@@ -35,9 +36,10 @@ $squareWidth: 100px;
       border-left: 50px solid transparent;
       border-right: 50px solid transparent;
       border-bottom: 100px solid #3498db;
-    //   position: absolute;
+      position: absolute;
       top: 0;
       left: 0;
+      transition: all 1s ease-out;
 
   
       &--top {
@@ -62,12 +64,18 @@ $squareWidth: 100px;
     }
 
     input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
         width: 100%;
         height: 100%;
+        opacity: 0;
     }
 
     &:has(input:checked) {
         background-color: blueviolet;
+        animation: around 1s normal infinite linear;
         .square__triangle {
             border-bottom: 100px solid blueviolet;
             &--top  {
@@ -86,6 +94,27 @@ $squareWidth: 100px;
     }
   }
 
+  @keyframes around {
+    0% {
+        border-radius: 0;
+
+    }
+    25% {
+        border-radius: 25%;
+    }
+    50% {
+        border-radius: 50%;
+    }
+    75% {
+        border-radius: 25%;
+
+    }
+    100% {
+        border-radius: 0%;
+
+    }
+  }
+/*Дз завершить мамент, когда анимация */
   
 
 
