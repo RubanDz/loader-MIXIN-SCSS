@@ -81,7 +81,7 @@ $squareWidth: 100px;
 
 
         .square__triangle {
-            border-bottom: 100px solid blueviolet;
+            border-bottom: $squareWidth solid blueviolet;
             
             &--top  {
                 @include translate(0, -100%, 0);
@@ -106,25 +106,25 @@ $squareWidth: 100px;
   }
 
   @keyframes around {
-    0% {
+    from {
         border-radius: 0;
         @include translate(-50%, -50%, 0)
 
     }
-    25% {
-        border-radius: 25%;
-        @include translate(-50%, -50%, 90)
-    }
-    50% {
-        border-radius: 50%;
-        @include translate(-50%, -50%, 180)
-    }
-    75% {
-        border-radius: 25%;
-        @include translate(-50%, -50%, 270)
+    // 25% {
+    //     border-radius: 25%;
+    //     @include translate(-50%, -50%, 90)
+    // }
+    // 50% {
+    //     border-radius: 50%;
+    //     @include translate(-50%, -50%, 180)
+    // }
+    // 75% {
+    //     border-radius: 25%;
+    //     @include translate(-50%, -50%, 270)
 
-    }
-    100% {
+    // }
+    to {
         border-radius: 0%;
         @include translate(-50%, -50%, 360)
 
