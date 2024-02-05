@@ -11,17 +11,15 @@ $squareWidth: 100px;
     position: relative;
     top: 50%;
     left: 50%;
-    @include translate()
+    @include translate();
 }
+
 @mixin translate($posX: -50%, $posY: -50%, $deg: 0) {
     transform: translate($posX, $posY) rotate($deg + deg);
 }
     
     
-// @mixin triangles {
-//     position: absolute;
-//     bottom: 0;
-// }
+
 
 .square {
     width: $squareWidth;
@@ -40,10 +38,13 @@ $squareWidth: 100px;
       top: 0;
       left: 0;
       transition: all 1s ease-out;
+      /*вращение*/
+      
 
   
       &--top {
         transform: rotate(0deg);
+        // animation: rotateAnimation 5s linear infinite;
       }
   
       &--right {
@@ -76,19 +77,29 @@ $squareWidth: 100px;
     &:has(input:checked) {
         background-color: blueviolet;
         animation: around 1s normal infinite linear;
+        // rotateAnimation 3s infinite normal linear; 
+
+
         .square__triangle {
             border-bottom: 100px solid blueviolet;
+            
             &--top  {
                 @include translate(0, -100%, 0);
+               
+               
             }
             &--right  {
                 @include translate(100%, 0, 90);
+               
             }
             &--bottom   {
                 @include translate(0, 100%, 180);
+               
             }
             &--left  {
                 @include translate(-100%, 0, -90);
+               
+
             }
         }
     }
@@ -97,24 +108,45 @@ $squareWidth: 100px;
   @keyframes around {
     0% {
         border-radius: 0;
+        @include translate(-50%, -50%, 0)
 
     }
     25% {
         border-radius: 25%;
+        @include translate(-50%, -50%, 90)
     }
     50% {
         border-radius: 50%;
+        @include translate(-50%, -50%, 180)
     }
     75% {
         border-radius: 25%;
+        @include translate(-50%, -50%, 270)
 
     }
     100% {
         border-radius: 0%;
+        @include translate(-50%, -50%, 360)
 
     }
   }
-/*Дз завершить мамент, когда анимация */
+
+
+  
+  
+
+
+/*Сделать так, чтобы треугольники вращались влево*/
+//   @keyframes rotateAnimation {
+//     0% {
+//         transform: rotate(0deg);
+//     }
+//     100% {
+//         transform: rotate(-360deg);
+//     }
+//   }
+
+
   
 
 
